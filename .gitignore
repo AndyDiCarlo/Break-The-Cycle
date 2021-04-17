@@ -1,8 +1,13 @@
+[Cc]ycleBreakers/Library/
 [Ll]ibrary/
+[Cc]ycleBreakers/[Tt]emp/
 [Tt]emp/
+[Cc]ycleBreakers/[Oo]bj/
 [Oo]bj/
 [Bb]uild/
+[Cc]ycleBreakers/[Bb]uild/
 [Bb]uilds/
+[Cc]ycleBreakers/[Bb]uilds/
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
@@ -35,3 +40,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+CycleBreakers/Library/ArtifactDB
+CycleBreakers/Library/CurrentLayout-default.dwlt
+CycleBreakers/Library/InspectorExpandedItems.asset
+CycleBreakers/Library/SceneVisibilityState.asset
+CycleBreakers/Library/shadercompiler-UnityShaderCompiler.exe0.log
+CycleBreakers/Library/SourceAssetDB
