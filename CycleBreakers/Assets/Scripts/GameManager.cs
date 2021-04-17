@@ -5,9 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    public GameObject StartupText;
     public static GameManager _instance = null;
 
     void Awake(){
+        StartupText.SetActive(true);
         if(_instance == null){
             _instance = this;
         } else{
