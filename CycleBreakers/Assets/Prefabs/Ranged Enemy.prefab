@@ -162,7 +162,7 @@ MonoBehaviour:
   maxHealth: 3
   health: 3
   attackSpeed: 1
-  maxSpeed: 1
+  maxSpeed: 3
   projectile: {fileID: 1562792769622015959, guid: 7c791d85f4aaa0246b8a8a3ac169e509,
     type: 3}
   timeToAttack: 2

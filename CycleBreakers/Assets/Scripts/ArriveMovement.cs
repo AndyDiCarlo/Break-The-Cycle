@@ -23,7 +23,7 @@ public class ArriveMovement : MonoBehaviour, IAIMove
             return moveAmount; //still zero
         }
 
-        moveAmount = vectorToTarget / timeToTarget;
+        moveAmount = vectorToTarget;
         if (vectorToTarget.magnitude > speed)
         {
             moveAmount = vectorToTarget.normalized * speed;

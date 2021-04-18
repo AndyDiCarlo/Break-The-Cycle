@@ -7,6 +7,7 @@ public class MeleeEnemy : Enemy
 {
 
     [SerializeField] private int damageAmount;
+    Vector2 dir;
 
     // Start is called before the first frame update
     new void Awake()
@@ -16,7 +17,7 @@ public class MeleeEnemy : Enemy
 
     public override void getAttack()
     {
-        //GetComponent<Player>().takeDamage(damageAmount);
+        
     }
 
     public override void getMovement()
@@ -29,7 +30,10 @@ public class MeleeEnemy : Enemy
         if(collision.gameObject.tag == "Player")
         {
             Debug.Log("Hit Player");
-            //getAttack();
+            collision.gameObject.GetComponent<Player>().takeDamage(damageAmount);
+
+            //dir = transform.position - collision.transform.position;
+            //dir.Normalize();
         }  
     }
 }

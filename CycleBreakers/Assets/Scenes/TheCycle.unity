@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4425310cb0e3f0b41a4e431b7c2c6843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   maxHealth: 3
   attackSpeed: 2
   cooldown: 0

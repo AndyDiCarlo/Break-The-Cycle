@@ -162,5 +162,5 @@ MonoBehaviour:
   maxHealth: 3
   health: 3
   attackSpeed: 1
-  maxSpeed: 1
+  maxSpeed: 5
   damageAmount: 1
