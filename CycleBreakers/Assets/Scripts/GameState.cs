@@ -54,7 +54,6 @@ public class Play : GameState {
 
     public override void Update(){
         gameManager.entityAction();
-        gameManager.spawn();
     }
 
     public override void Exit()

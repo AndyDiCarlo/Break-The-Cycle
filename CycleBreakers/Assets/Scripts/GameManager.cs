@@ -25,8 +25,6 @@ public class GameManager : MonoBehaviour
 
     private GameState state;
     public Player player;
-    public SpawnManager sm;
-    private List<Enemy> enemies;
 
 
     void Start()
@@ -43,23 +41,5 @@ public class GameManager : MonoBehaviour
     public void entityAction(){
         player.move();
         player.attack();
-
-        enemies = sm.getEnemies();
-        foreach(Enemy e in enemies)
-        {
-            e.getMovement();
-            e.moveEnemy();
-            e.getAttack();
-        }
-    }
-
-    public void spawn()
-    {
-        sm.spawnWave();
-    }
-
-    public Player getPlayer()
-    {
-        return player;
     }
 }

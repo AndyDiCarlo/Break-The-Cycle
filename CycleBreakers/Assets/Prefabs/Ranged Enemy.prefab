@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 3449522558755372465}
   - component: {fileID: 3449522558755372466}
   - component: {fileID: 3449522558755372467}
-  - component: {fileID: 3574326711953166851}
-  - component: {fileID: 6261459903399072947}
+  - component: {fileID: 3449522558755372468}
   m_Layer: 0
   m_Name: Ranged Enemy
   m_TagString: Ranged
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3449522558755372469}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.67, y: -1.19, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 1.293137, y: 1.2731986, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  m_Color: {r: 0.6415094, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,7 +104,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &3449522558755372467
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -132,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.14676857, y: 0.1526492}
   m_EdgeRadius: 0
---- !u!114 &3574326711953166851
+--- !u!114 &3449522558755372468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,28 +140,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3449522558755372469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4570571eea0c694d9ed45f65637ec5b, type: 3}
+  m_Script: {fileID: 11500000, guid: f69d10b62eccceb4cac5b030219c49aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToTarget: 2
-  radius: 2
---- !u!114 &6261459903399072947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3449522558755372469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcc4605a2af83264da4fd3ad010a3235, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  maxHealth: 3
-  health: 3
-  attackSpeed: 1
-  maxSpeed: 3
-  projectile: {fileID: 1562792769622015959, guid: 7c791d85f4aaa0246b8a8a3ac169e509,
-    type: 3}
-  timeToAttack: 2
+  player: {fileID: 0}
+  maxHealth: 5
+  attackSpeed: 2
+  maxSpeed: 1

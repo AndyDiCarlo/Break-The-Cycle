@@ -2,70 +2,69 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(IAIMove))]
-
-public abstract class Enemy : MonoBehaviour, IProduct
+public class Enemy : MonoBehaviour
 {
 
-    [SerializeField] protected Player target;
+    public GameObject player;
     private Rigidbody2D rb;
-    protected Vector2 move;
-    protected IAIMove AIMovement;
+    private Vector2 move;
 
-    [SerializeField] protected int maxHealth;
-    [SerializeField] protected int health;
+    private int health;
+    [SerializeField] private int maxHealth;
     [SerializeField] private int attackSpeed;
     [SerializeField] private float maxSpeed;
-    protected float speed;
+    private float speed;
     private float cooldown;
 
-    public System.Action<Enemy> killEnemy;
-
     // Start is called before the first frame update
-    protected void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        AIMovement = GetComponent<IAIMove>();
         health = maxHealth;
         cooldown = attackSpeed;
         speed = maxSpeed;
     }
 
-    public void setTarget(Player p)
+    // Update is called once per frame
+    void Update()
     {
-        target = p;
+        moveAI();
     }
 
-
-    public virtual void moveEnemy()
+    void FixedUpdate()
     {
         rb.MovePosition(rb.position + move * Time.deltaTime);
     }
 
-    public virtual void getMovement()
+    public void moveAI()
     {
-        move = Vector2.zero;
-    }
+        move = (Vector2)player.transform.position - rb.position; //vector from AI to Player
+        float distanceToTarget = move.magnitude;
+        move = move.normalized * speed;
 
-    public virtual void getAttack()
-    {
-
-    }
-
-    public virtual void death()
-    {
-        killEnemy?.Invoke(this);
-        Destroy(this.gameObject);
-    }
-
-    public virtual void takeDamage(int damageDone)
-    {
-        health -= damageDone;
-        if(health <= 0)
+        if(rb.tag == "Melee")
         {
-            death();
+            if(distanceToTarget < .5f)
+            {
+                speed = 0;
+            }
+            else
+            {
+                speed = maxSpeed;
+            }
         }
-    }
+        
+        if(rb.tag == "Ranged")
+        {
+            if(distanceToTarget < 1.5f)
+            {
+                speed = 0;
+            }
+            else
+            {
+                speed = maxSpeed;
+            }
+        }
       
+    }
 }

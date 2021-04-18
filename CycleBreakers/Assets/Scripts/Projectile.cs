@@ -4,34 +4,29 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float projectileSpeed = 0f;
-    [SerializeField] private int damageAmount = 0;
-
+    // Start is called before the first frame update
+    public float speed =0f;
+    public int damage = 0;
     private Rigidbody2D rb;
     private Vector2 moveAmount;
 
-    void Awake()
-    {
+    void Awake(){
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         rb.MovePosition(rb.position + moveAmount * Time.deltaTime);
     }
 
-    public void setTarget(Transform target)
-    {
+    public void setTarget(Transform target){
         moveAmount = target.position - this.transform.position;
-        moveAmount = moveAmount.normalized * projectileSpeed;
+        moveAmount = moveAmount.normalized * speed;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Player")
-        {
-            Destroy(this.gameObject);
-            collision.GetComponent<Player>().takeDamage(damageAmount);
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Player"){
+            other.GetComponent<Player>().takeDamage(damage);
         }
+        
     }
 }
