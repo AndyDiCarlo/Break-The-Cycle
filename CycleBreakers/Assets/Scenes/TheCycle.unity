@@ -575,7 +575,7 @@ MonoBehaviour:
   RangedPrefab: {fileID: 6261459903399072947, guid: dd40ca6774f5b42468f8615aca0d2166,
     type: 3}
   Boss: {fileID: 0}
-  spawnCooldown: 10.08
+  spawnCooldown: 100
 --- !u!1001 &739948385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5533,8 +5533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeb1b715d8fe144e8949eab390370ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  damage: 2
+  projectileSpeed: 0
+  damageAmount: 0
 --- !u!50 &1059769093
 Rigidbody2D:
   serializedVersion: 4
@@ -6419,12 +6419,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788846765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.213, y: 3.793, z: -0.66742504}
+  m_LocalPosition: {x: -8.179, y: 3.032, z: -0.66742504}
   m_LocalScale: {x: 3.03, y: 3.22, z: 1}
   m_Children:
   - {fileID: 1059769091}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1788846770
 BoxCollider2D:
@@ -25770,7 +25770,7 @@ PrefabInstance:
     - target: {fileID: 6779674985930280820, guid: fa1a47262128917438ffb22cbe80c944,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6779674985930280820, guid: fa1a47262128917438ffb22cbe80c944,
         type: 3}
@@ -25906,11 +25906,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ranged Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3449522558755372469, guid: dd40ca6774f5b42468f8615aca0d2166,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3449522558755372469, guid: dd40ca6774f5b42468f8615aca0d2166,
         type: 3}

@@ -20,8 +20,8 @@ public class EnemyFactory : IFactory
     {
         float meleeChance = 0.5f;
         //where to spawn
-        float x = Random.Range(-5f, 5);
-        float y = Random.Range(-5f, 5);
+        float x = Random.Range(-8.1f, -7.2f);
+        float y = Random.Range(3f, 3.9f);
 
         float rand = Random.Range(0f, 1f);
 
