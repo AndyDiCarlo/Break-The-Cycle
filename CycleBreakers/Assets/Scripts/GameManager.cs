@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         {
             e.getMovement();
             e.moveEnemy();
+            e.getAttack();
         }
     }
 

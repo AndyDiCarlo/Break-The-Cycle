@@ -105,7 +105,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &3449522558755372467
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -163,5 +163,6 @@ MonoBehaviour:
   health: 3
   attackSpeed: 1
   maxSpeed: 1
-  projectile: {fileID: 0}
+  projectile: {fileID: 1562792769622015959, guid: 7c791d85f4aaa0246b8a8a3ac169e509,
+    type: 3}
   timeToAttack: 2

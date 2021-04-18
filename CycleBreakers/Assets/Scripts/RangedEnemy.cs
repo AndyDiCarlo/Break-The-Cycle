@@ -21,7 +21,9 @@ public class RangedEnemy : Enemy
     {
         if(attackTime <= 0)
         {
-
+            GameObject p = Instantiate(projectile, transform.position, Quaternion.identity);
+            p.GetComponent<Projectile>().setTarget(target.transform);
+            attackTime = timeToAttack;
         }
         attackTime -= Time.deltaTime;
     }
