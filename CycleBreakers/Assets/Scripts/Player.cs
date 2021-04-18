@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private bool keyDown;
     private int loopCount = 0;
 
+    
 
     // Start is called before the first frame update
     void Start()
@@ -74,8 +75,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         GameObject Cam = GameObject.FindGameObjectWithTag("MainCamera");
-
-        if(this.transform.position.x < -7.6 && this.transform.position.y > 2.8){
+        if(this.transform.position.x < -7.6 && this.transform.position.y > 2.8 && this.transform.position.y < 3.5f) {
             this.transform.position = new Vector3(this.transform.position.x, 1.7f, this.transform.position.z);
             Cam.transform.position = new Vector3(-7.72f, 1.18f, -1);
         }
@@ -93,6 +93,17 @@ public class Player : MonoBehaviour
             Cam.transform.position = new Vector3(-7.72f, 3.48f, -1);
         }
         Debug.Log(loopCount);
+    }
+
+    void OnTriggerStay2D(Collider2D other){
+        GameObject Cam = GameObject.FindGameObjectWithTag("MainCamera");
+        GameObject BossCam = GameObject.FindGameObjectWithTag("BossCam");
+        if(loopCount>0 && Input.GetKey(KeyCode.Space) && other.tag == "BossCam"){
+            this.transform.position = new Vector3(-.76f,2.82f,this.transform.position.z);
+            Debug.Log("Here");
+            BossCam.SetActive(true);
+            Cam.SetActive(false);
+        }
     }
 
     // Update is called once per frame

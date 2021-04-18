@@ -45,7 +45,7 @@ public class Boss : MonoBehaviour {
         }
         else
         {
-            Debug.Log("I should be moving");
+            // Debug.Log("I should be moving");
             speed = maxSpeed;
         }
         
