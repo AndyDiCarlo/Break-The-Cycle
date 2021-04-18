@@ -9,11 +9,12 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveAmount;
     private int health;
-
     [SerializeField] private int maxHealth;
     [SerializeField] private float attackSpeed;
     public float cooldown;
     public ParticleSystem attackParticle;
+    public int attackDmg;
+    private int attackHit;
     private bool keyDown;
     private int loopCount = 0;
 
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         health = maxHealth;
         cooldown = attackSpeed;
+        attackHit=attackDmg;
     }
 
 
@@ -36,6 +38,18 @@ public class Player : MonoBehaviour
     public void move(){
         getMovement();
         rb.MovePosition(rb.position+moveAmount*Time.deltaTime);
+    }
+    public void healthUp(int up){
+        maxHealth+=up;
+    }
+    public void attackUp(int up){
+        attackDmg+=up;
+    }
+    public void speedUp(int up){
+        speed+=up;
+    }
+    public void firerateUp(float down){
+       cooldown-=down;
     }
 
     public void attack(){
@@ -75,7 +89,9 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         GameObject Cam = GameObject.FindGameObjectWithTag("MainCamera");
-        if(this.transform.position.x < -7.6 && this.transform.position.y > 2.8 && this.transform.position.y < 3.5f) {
+
+        if(other.tag=="Door"){
+            if(this.transform.position.x < -7.6 && this.transform.position.y > 2.8){
             this.transform.position = new Vector3(this.transform.position.x, 1.7f, this.transform.position.z);
             Cam.transform.position = new Vector3(-7.72f, 1.18f, -1);
         }
@@ -92,7 +108,9 @@ public class Player : MonoBehaviour
             this.transform.position = new Vector3(-7.2f, 3.48f, this.transform.position.z);
             Cam.transform.position = new Vector3(-7.72f, 3.48f, -1);
         }
-        Debug.Log(loopCount);
+        }
+
+        
     }
 
     void OnTriggerStay2D(Collider2D other){
