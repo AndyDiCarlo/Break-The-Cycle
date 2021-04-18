@@ -7,6 +7,7 @@ TagManager:
   - Melee
   - Ranged
   - BossCam
+  - BossTrigger
   layers:
   - Default
   - TransparentFX

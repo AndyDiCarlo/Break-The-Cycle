@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
     void OnTriggerStay2D(Collider2D other){
         GameObject Cam = GameObject.FindGameObjectWithTag("MainCamera");
         GameObject BossCam = GameObject.FindGameObjectWithTag("BossCam");
-        if(loopCount>0 && Input.GetKey(KeyCode.Space) && other.tag == "BossCam"){
+        if(loopCount>0 && Input.GetKey(KeyCode.Space) && other.tag == "BossTrigger"){
             this.transform.position = new Vector3(-.76f,2.82f,this.transform.position.z);
             Debug.Log("Here");
             BossCam.SetActive(true);
