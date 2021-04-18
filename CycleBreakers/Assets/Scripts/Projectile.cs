@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
 
     void Awake()
     {
-        rb.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            Destroy(this);
+            Destroy(this.gameObject);
             collision.GetComponent<Player>().takeDamage(damageAmount);
         }
     }

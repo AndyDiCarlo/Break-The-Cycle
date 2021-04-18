@@ -904,6 +904,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3574326711953166851, guid: dd40ca6774f5b42468f8615aca0d2166,
+        type: 3}
+      propertyPath: radius
+      value: 1.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 3574326711953166851, guid: dd40ca6774f5b42468f8615aca0d2166,
+        type: 3}
+      propertyPath: timeToTarget
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261459903399072947, guid: dd40ca6774f5b42468f8615aca0d2166,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3449522558755372468, guid: dd40ca6774f5b42468f8615aca0d2166, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dd40ca6774f5b42468f8615aca0d2166, type: 3}

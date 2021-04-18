@@ -16,7 +16,7 @@ public class MeleeEnemy : Enemy
 
     public override void getAttack()
     {
-        GetComponent<Player>().takeDamage(damageAmount);
+        //GetComponent<Player>().takeDamage(damageAmount);
     }
 
     public override void getMovement()
@@ -29,7 +29,7 @@ public class MeleeEnemy : Enemy
         if(collision.gameObject.tag == "Player")
         {
             Debug.Log("Hit Player");
-            getAttack();
+            //getAttack();
         }  
     }
 }

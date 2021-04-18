@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RangedEnemy : Enemy
 {
-    [SerializeField] private GameObject projectile = null;
+    [SerializeField] private GameObject projectile;
     [SerializeField] private float timeToAttack = 0f;
     private float attackTime = 0f;
 
