@@ -2,69 +2,70 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(IAIMove))]
+
+public abstract class Enemy : MonoBehaviour, IProduct
 {
 
-    public GameObject player;
+    [SerializeField] protected Player target;
     private Rigidbody2D rb;
-    private Vector2 move;
+    protected Vector2 move;
+    protected IAIMove AIMovement;
 
-    private int health;
-    [SerializeField] private int maxHealth;
+    [SerializeField] protected int maxHealth;
+    [SerializeField] protected int health;
     [SerializeField] private int attackSpeed;
     [SerializeField] private float maxSpeed;
-    private float speed;
+    protected float speed;
     private float cooldown;
 
+    public System.Action<Enemy> killEnemy;
+
     // Start is called before the first frame update
-    void Start()
+    protected void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        AIMovement = GetComponent<IAIMove>();
         health = maxHealth;
         cooldown = attackSpeed;
         speed = maxSpeed;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void setTarget(Player p)
     {
-        moveAI();
+        target = p;
     }
 
-    void FixedUpdate()
+
+    public virtual void moveEnemy()
     {
         rb.MovePosition(rb.position + move * Time.deltaTime);
     }
 
-    public void moveAI()
+    public virtual void getMovement()
     {
-        move = (Vector2)player.transform.position - rb.position; //vector from AI to Player
-        float distanceToTarget = move.magnitude;
-        move = move.normalized * speed;
-
-        if(rb.tag == "Melee")
-        {
-            if(distanceToTarget < .5f)
-            {
-                speed = 0;
-            }
-            else
-            {
-                speed = maxSpeed;
-            }
-        }
-        
-        if(rb.tag == "Ranged")
-        {
-            if(distanceToTarget < 1.5f)
-            {
-                speed = 0;
-            }
-            else
-            {
-                speed = maxSpeed;
-            }
-        }
-      
+        move = Vector2.zero;
     }
+
+    public virtual void getAttack()
+    {
+
+    }
+
+    public virtual void death()
+    {
+        killEnemy?.Invoke(this);
+        Destroy(this.gameObject);
+    }
+
+    public virtual void takeDamage(int damageDone)
+    {
+        health -= damageDone;
+        if(health <= 0)
+        {
+            death();
+        }
+    }
+      
 }

@@ -499,6 +499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 736989806}
   - component: {fileID: 736989805}
+  - component: {fileID: 736989807}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -520,6 +521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartupText: {fileID: 423122191}
   player: {fileID: 658003894}
+  sm: {fileID: 736989807}
 --- !u!4 &736989806
 Transform:
   m_ObjectHideFlags: 0
@@ -534,6 +536,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736989807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736989804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33ef7ab3de9f36428c4e231bc712db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyWaveCount: 4
+  MeleePrefab: {fileID: 4636806046347930221, guid: 7d0c2794be6c35e4d81da4079c10122a,
+    type: 3}
+  RangedPrefab: {fileID: 6261459903399072947, guid: dd40ca6774f5b42468f8615aca0d2166,
+    type: 3}
+  Boss: {fileID: 0}
+  spawnCooldown: 10.08
 --- !u!1001 &739948385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -711,12 +732,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Melee Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2440966679090646898, guid: 7d0c2794be6c35e4d81da4079c10122a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2440966679090646901, guid: 7d0c2794be6c35e4d81da4079c10122a,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 658003893}
-    m_RemovedComponents: []
+    - target: {fileID: 2440966679090646901, guid: 7d0c2794be6c35e4d81da4079c10122a,
+        type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2440966679090646901, guid: 7d0c2794be6c35e4d81da4079c10122a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7d0c2794be6c35e4d81da4079c10122a, type: 3}
 --- !u!1 &1741471282
 GameObject:
@@ -857,10 +889,21 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 658003893}
+    - target: {fileID: 3449522558755372468, guid: dd40ca6774f5b42468f8615aca0d2166,
+        type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3449522558755372469, guid: dd40ca6774f5b42468f8615aca0d2166,
         type: 3}
       propertyPath: m_Name
       value: Ranged Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3449522558755372469, guid: dd40ca6774f5b42468f8615aca0d2166,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3449522558755372468, guid: dd40ca6774f5b42468f8615aca0d2166, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dd40ca6774f5b42468f8615aca0d2166, type: 3}
