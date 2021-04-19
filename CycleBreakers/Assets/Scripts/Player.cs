@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     private Rigidbody2D rb;
     private Vector2 moveAmount;
-    private int health;
+    public int health;
     [SerializeField] private int maxHealth;
     [SerializeField] private float attackSpeed;
     public float cooldown;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     public int roomNumber = 0;
     //public int enemyCount = 0;
 
+    public GameUI GUI;
     
 
     // Start is called before the first frame update
@@ -30,6 +32,7 @@ public class Player : MonoBehaviour
         health = maxHealth;
         cooldown = attackSpeed;
         attackHit=attackDmg;
+        GUI.UpdateHealth(health);
     }
 
 
@@ -85,6 +88,7 @@ public class Player : MonoBehaviour
 
     public void takeDamage(int amt){
         health -= amt;
+        GUI.UpdateHealth(health);
         if(health<=0){
             print("Game Over");
         }
