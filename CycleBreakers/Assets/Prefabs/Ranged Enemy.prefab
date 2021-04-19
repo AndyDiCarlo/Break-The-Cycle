@@ -159,8 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  maxHealth: 3
-  health: 3
+  maxHealth: 2
+  health: 2
   attackSpeed: 1
   maxSpeed: 1.55
   projectile: {fileID: 1562792769622015959, guid: 7c791d85f4aaa0246b8a8a3ac169e509,

@@ -13,7 +13,7 @@ public abstract class Enemy : MonoBehaviour, IProduct
     protected Vector2 move;
     protected IAIMove AIMovement;
 
-    [SerializeField] protected int maxHealth;
+    [SerializeField] protected int maxHealth = 2;
     [SerializeField] protected int health;
     [SerializeField] private int attackSpeed;
     [SerializeField] private float maxSpeed;
@@ -27,6 +27,7 @@ public abstract class Enemy : MonoBehaviour, IProduct
     {
         rb = GetComponent<Rigidbody2D>();
         AIMovement = GetComponent<IAIMove>();
+        maxHealth = maxHealth + (1 * GameObject.Find("Player").GetComponent<Player>().loopCount);
         health = maxHealth;
         cooldown = attackSpeed;
         speed = maxSpeed;
