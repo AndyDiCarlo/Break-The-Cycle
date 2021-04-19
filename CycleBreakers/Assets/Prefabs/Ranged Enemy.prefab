@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToTarget: 2
-  radius: 2
+  radius: 0.5
 --- !u!114 &6261459903399072947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   maxHealth: 3
   health: 3
   attackSpeed: 1
-  maxSpeed: 3
+  maxSpeed: 1.55
   projectile: {fileID: 1562792769622015959, guid: 7c791d85f4aaa0246b8a8a3ac169e509,
     type: 3}
   timeToAttack: 2

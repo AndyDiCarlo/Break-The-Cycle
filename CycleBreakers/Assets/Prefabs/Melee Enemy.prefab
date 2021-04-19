@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToTarget: 2
-  radius: 0.26
+  radius: 0.14
 --- !u!114 &4636806046347930221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,5 +162,5 @@ MonoBehaviour:
   maxHealth: 3
   health: 3
   attackSpeed: 1
-  maxSpeed: 5
+  maxSpeed: 2.64
   damageAmount: 1
