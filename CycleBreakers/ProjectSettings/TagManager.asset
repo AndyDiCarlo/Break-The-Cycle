@@ -8,6 +8,12 @@ TagManager:
   - Ranged
   - BossCam
   - BossTrigger
+  - HealthUp
+  - AttackUp
+  - SpeedUp
+  - FirerateUp
+  - Door1
+  - Door
   layers:
   - Default
   - TransparentFX
