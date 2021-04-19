@@ -5,8 +5,9 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
 
+    public static SpawnManager _instance = null;
 
-    private List<Enemy> allEnemies = new List<Enemy>();
+    public List<Enemy> allEnemies = new List<Enemy>();
 
     [SerializeField] private int enemyWaveCount = 0;
     [SerializeField] private Enemy MeleePrefab = null;
@@ -16,6 +17,11 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] public float spawnCooldown = 0;
     private float spawnTime = 0;
     private EnemyFactory factory;
+
+    public static SpawnManager instance()
+    {
+        return _instance;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -31,19 +37,16 @@ public class SpawnManager : MonoBehaviour
 
     public void spawnWave()
     {
-        //this will change to work with our trigger instead of spawn timer
-        //if(spawnTime <= 0)
-        //{
-            Enemy e;
-            for(int i =0; i < enemyWaveCount; i++)
-            {
-                e = (Enemy)factory.produce();
-                allEnemies.Add(e);
-                e.killEnemy += removeEnemy;
-                e.setTarget(GameManager.instance().getPlayer());
-            }
-            spawnTime = spawnCooldown;
-        //}
+        //will spawn wave every time player walks through into new room
+        Enemy e;
+        for(int i =0; i < enemyWaveCount; i++)
+        {
+            e = (Enemy)factory.produce();
+            allEnemies.Add(e);
+            e.killEnemy += removeEnemy;
+            e.setTarget(GameManager.instance().getPlayer());
+        }
+        spawnTime = spawnCooldown;
         
     }
 
@@ -55,5 +58,14 @@ public class SpawnManager : MonoBehaviour
     public void removeEnemy(Enemy e)
     {
         allEnemies.Remove(e);
+    }
+
+    public bool enemiesClear()
+    {
+        if(allEnemies.Count != 0)
+        {
+            return false;
+        }
+        return true;
     }
 }

@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private bool keyDown;
     public int loopCount = 0;
     public int roomNumber = 0;
+    //public int enemyCount = 0;
 
     
 
@@ -89,42 +90,49 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void updateRoom(int room)
+    void Update()
     {
-        //enemyFactory.setCurrentRoom(room);
+
     }
 
     void OnTriggerEnter2D(Collider2D other){
         GameObject Cam = GameObject.FindGameObjectWithTag("MainCamera");
 
-        if(other.tag=="Door"){
-            if(this.transform.position.x < -7.6 && this.transform.position.y > 2.8){
-                this.transform.position = new Vector3(this.transform.position.x, 1.7f, this.transform.position.z);
-                Cam.transform.position = new Vector3(-7.72f, 1.18f, -1);
-                roomNumber = 1;
-                GameManager.instance().GetComponent<GameManager>().spawn();
+        if(GameObject.Find("Manager").GetComponent<SpawnManager>().enemiesClear() == true)
+        {
+            if (other.tag == "Door")
+            {
+                if (this.transform.position.x < -7.6 && this.transform.position.y > 2.8)
+                {
+                    this.transform.position = new Vector3(this.transform.position.x, 1.7f, this.transform.position.z);
+                    Cam.transform.position = new Vector3(-7.72f, 1.18f, -1);
+                    roomNumber = 1;
+                    GameManager.instance().GetComponent<GameManager>().spawn();
+                }
+                if (this.transform.position.x < -7.0 && this.transform.position.y < 1.5)
+                {
+                    this.transform.position = new Vector3(-4.64f, this.transform.position.y, this.transform.position.z);
+                    Cam.transform.position = new Vector3(-4.12f, 1.18f, -1);
+                    roomNumber = 2;
+                    GameManager.instance().GetComponent<GameManager>().spawn();
+                }
+                if (this.transform.position.x < -3.8 && this.transform.position.x > -4.3 && this.transform.position.y > 1.65)
+                {
+                    this.transform.position = new Vector3(this.transform.position.x, 3, this.transform.position.z);
+                    Cam.transform.position = new Vector3(-4.12f, 3.48f, -1);
+                    roomNumber = 3;
+                    GameManager.instance().GetComponent<GameManager>().spawn();
+                }
+                if (this.transform.position.x < -4.5 && this.transform.position.x > -5 && this.transform.position.y > 2.8)
+                {
+                    loopCount++;
+                    this.transform.position = new Vector3(-7.2f, 3.48f, this.transform.position.z);
+                    Cam.transform.position = new Vector3(-7.72f, 3.48f, -1);
+                    roomNumber = 0;
+                    GameManager.instance().GetComponent<GameManager>().spawn();
+                }
+            }
         }
-            if(this.transform.position.x < -7.0 && this.transform.position.y < 1.5){
-                this.transform.position = new Vector3(-4.64f, this.transform.position.y, this.transform.position.z);
-                Cam.transform.position = new Vector3(-4.12f, 1.18f, -1);
-                roomNumber = 2;
-                GameManager.instance().GetComponent<GameManager>().spawn();
-            }
-            if(this.transform.position.x < -3.8 && this.transform.position.x > -4.3 && this.transform.position.y > 1.65){
-                this.transform.position = new Vector3(this.transform.position.x, 3, this.transform.position.z);
-                Cam.transform.position = new Vector3(-4.12f, 3.48f, -1);
-                roomNumber = 3;
-                GameManager.instance().GetComponent<GameManager>().spawn();
-            }
-            if(this.transform.position.x < -4.5 && this.transform.position.x > -5 && this.transform.position.y > 2.8){
-                loopCount++;
-                this.transform.position = new Vector3(-7.2f, 3.48f, this.transform.position.z);
-                Cam.transform.position = new Vector3(-7.72f, 3.48f, -1);
-                roomNumber = 0;
-                GameManager.instance().GetComponent<GameManager>().spawn();
-            }
-        }
-
         
     }
 
@@ -139,9 +147,4 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
