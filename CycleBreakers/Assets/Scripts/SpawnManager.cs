@@ -32,8 +32,8 @@ public class SpawnManager : MonoBehaviour
     public void spawnWave()
     {
         //this will change to work with our trigger instead of spawn timer
-        if(spawnTime <= 0)
-        {
+        //if(spawnTime <= 0)
+        //{
             Enemy e;
             for(int i =0; i < enemyWaveCount; i++)
             {
@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
                 e.setTarget(GameManager.instance().getPlayer());
             }
             spawnTime = spawnCooldown;
-        }
+        //}
         
     }
 
