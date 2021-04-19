@@ -615,6 +615,8 @@ MonoBehaviour:
   cooldown: 0
   attackParticle: {fileID: 1837089307}
   attackDmg: 0
+  loopCount: 0
+  roomNumber: 0
 --- !u!1 &736989804
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartupText: {fileID: 423122191}
   player: {fileID: 658003894}
-  sm: {fileID: 0}
+  sm: {fileID: 736989807}
 --- !u!4 &736989806
 Transform:
   m_ObjectHideFlags: 0
