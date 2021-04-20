@@ -15,6 +15,7 @@ TagManager:
   - Door1
   - Door
   - Manager
+  - Wall
   layers:
   - Default
   - TransparentFX
