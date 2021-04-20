@@ -24,7 +24,6 @@ public class PowerUps : MonoBehaviour
         if (collision.tag=="Player"){
             if(col.tag=="HealthUp"){
                 collision.GetComponent<Player>().healthUp(healthincrease);
-                GUI.UpdateHealth(collision.GetComponent<Player>().health);
                 GameObject.Destroy(gameObject);
             }
             if(col.tag=="AttackUp"){

@@ -570,7 +570,7 @@ MonoBehaviour:
   speed: 2
   BossCam: {fileID: 700308919}
   health: 0
-  maxHealth: 15
+  maxHealth: 12
   attackSpeed: 2
   cooldown: -1
   attackParticle: {fileID: 1837089307}

@@ -51,7 +51,7 @@ public class SpawnManager : MonoBehaviour
     }
     public void spawnBoss()
     {
-        //will spawn wave every time player walks through into new room
+        //will spawn boss when player enters boss room
         Enemy e;
         e = (Enemy)factory.produce();
         allEnemies.Add(e);

@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
         {
             health += up;
         }
+        GUI.UpdateHealth(health);
     }
     public void attackUp(int up){
         attackDmg+=up;

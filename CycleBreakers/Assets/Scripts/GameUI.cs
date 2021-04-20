@@ -25,10 +25,14 @@ public class GameUI : MonoBehaviour
         if(health >= 12){
             health = 12;
         }
-        for(int i = health; i <12;i++){
+        for(int i = 11; i >0; i--){
             Debug.Log(health + " Here1");
             Debug.Log(this.health[1].enabled);
-            if(this.health[i].enabled == true){
+            if(health-1 >= i){
+                this.health[i].enabled = true;
+            }
+            else
+            {
                 this.health[i].enabled = false;
             }
         }
