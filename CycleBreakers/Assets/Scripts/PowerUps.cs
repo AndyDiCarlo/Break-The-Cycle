@@ -9,6 +9,7 @@ public class PowerUps : MonoBehaviour
     public int speedincrease;
     public float cooldownreduce;
     private GameObject obj;
+    public GameUI GUI;
     Collider2D col;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class PowerUps : MonoBehaviour
         if (collision.tag=="Player"){
             if(col.tag=="HealthUp"){
                 collision.GetComponent<Player>().healthUp(healthincrease);
+                GUI.UpdateHealth(collision.GetComponent<Player>().health);
                 GameObject.Destroy(gameObject);
             }
             if(col.tag=="AttackUp"){
