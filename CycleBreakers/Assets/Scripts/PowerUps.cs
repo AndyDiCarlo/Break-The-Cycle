@@ -6,7 +6,7 @@ public class PowerUps : MonoBehaviour
 {
     public int healthincrease;
     public int attackincrease;
-    public int speedincrease;
+    public float speedincrease;
     public float cooldownreduce;
     private GameObject obj;
     public GameUI GUI;
@@ -24,7 +24,6 @@ public class PowerUps : MonoBehaviour
         if (collision.tag=="Player"){
             if(col.tag=="HealthUp"){
                 collision.GetComponent<Player>().healthUp(healthincrease);
-                GUI.UpdateHealth(collision.GetComponent<Player>().health);
                 GameObject.Destroy(gameObject);
             }
             if(col.tag=="AttackUp"){

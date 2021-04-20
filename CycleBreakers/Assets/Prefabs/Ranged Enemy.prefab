@@ -163,6 +163,14 @@ MonoBehaviour:
   health: 2
   attackSpeed: 1
   maxSpeed: 1.55
+  healthPowerUp: {fileID: 6287119106792887178, guid: f1d626416c26ad74880df19fda1ccf7b,
+    type: 3}
+  attackPowerUp: {fileID: 5967730521502515209, guid: cf5ddb6efc0dc41458d2de4c3ba2fb66,
+    type: 3}
+  cooldownPowerUp: {fileID: 2609177588007728060, guid: bad79f0df265a2844bff2e3a7c4105df,
+    type: 3}
+  speedPowerUp: {fileID: 5387230825455004159, guid: 52dfb6fab90e80d4f8fe1d1e5205a15b,
+    type: 3}
   projectile: {fileID: 1562792769622015959, guid: 7c791d85f4aaa0246b8a8a3ac169e509,
     type: 3}
   timeToAttack: 2

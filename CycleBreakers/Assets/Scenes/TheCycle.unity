@@ -567,14 +567,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerProjectile: {fileID: 7182431132559366834, guid: 8c1ea72b0f7603b4c85c50563981b27d,
     type: 3}
-  speed: 5
+  speed: 2
   BossCam: {fileID: 700308919}
   health: 0
-  maxHealth: 15
+  maxHealth: 12
   attackSpeed: 2
   cooldown: -1
   attackParticle: {fileID: 1837089307}
-  attackDmg: 0
+  attackDmg: 1
   loopCount: 0
   roomNumber: 0
   GUI: {fileID: 7634762816629594743}

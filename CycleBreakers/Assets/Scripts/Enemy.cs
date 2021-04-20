@@ -20,6 +20,11 @@ public abstract class Enemy : MonoBehaviour, IProduct
     protected float speed;
     private float cooldown;
 
+    [SerializeField] private GameObject healthPowerUp;
+    [SerializeField] private GameObject attackPowerUp;
+    [SerializeField] private GameObject cooldownPowerUp;
+    [SerializeField] private GameObject speedPowerUp;
+
     public System.Action<Enemy> killEnemy;
 
     // Start is called before the first frame update
@@ -60,13 +65,42 @@ public abstract class Enemy : MonoBehaviour, IProduct
         Destroy(this.gameObject);
     }
 
+    public void spawnPowerUp(Vector2 pos)
+    {
+        float rand = Random.Range(0f, 1f);
+
+        if(rand >= 0 && rand <= .13f)
+        {
+            GameObject p = Instantiate(speedPowerUp, pos, Quaternion.identity);
+        }
+        if(rand > .13f && rand <= .5f)
+        {
+            GameObject p = Instantiate(healthPowerUp, pos, Quaternion.identity);
+        }
+        if(rand > .5f && rand <= .75f)
+        {
+            GameObject p = Instantiate(attackPowerUp, pos, Quaternion.identity);
+        }
+        if(rand > .75f && rand <= 1f)
+        {
+            GameObject p = Instantiate(cooldownPowerUp, pos, Quaternion.identity);
+        }
+    }
+
     public virtual void takeDamage(int damageDone)
     {
         health -= damageDone;
-        if(health <= 0)
+        int toSpawnPowerUp = GameObject.Find("Manager").GetComponent<SpawnManager>().allEnemies.Count;
+        
+        if (health <= 0)
         {
+            if(this.gameObject.tag != "Boss" && toSpawnPowerUp == 1)
+            {
+                spawnPowerUp(this.transform.position);
+            }
             death();
         }
+        
     }
       
 }
