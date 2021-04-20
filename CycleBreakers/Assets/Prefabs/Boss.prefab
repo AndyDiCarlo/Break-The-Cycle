@@ -4826,8 +4826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeb1b715d8fe144e8949eab390370ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  damage: 2
+  projectileSpeed: 0
+  damageAmount: 0
 --- !u!50 &540285995491931988
 Rigidbody2D:
   serializedVersion: 4
@@ -4861,7 +4861,8 @@ GameObject:
   - component: {fileID: 540285996254584574}
   - component: {fileID: 540285996254584545}
   - component: {fileID: 540285996254584547}
-  - component: {fileID: 540285996254584575}
+  - component: {fileID: 1433078233280800048}
+  - component: {fileID: -9211405096542539731}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -4877,7 +4878,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540285996254584572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.213, y: 3.793, z: -0.66742504}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.03, y: 3.22, z: 1}
   m_Children:
   - {fileID: 540285995491931986}
@@ -4966,7 +4967,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4982,7 +4983,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08, y: 0.08}
   m_EdgeRadius: 0
---- !u!114 &540285996254584575
+--- !u!114 &1433078233280800048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4991,12 +4992,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 540285996254584572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28221aaa5716d154d9cfee4abfd8d830, type: 3}
+  m_Script: {fileID: 11500000, guid: b4570571eea0c694d9ed45f65637ec5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints: []
-  projectile: {fileID: 540285995491931985}
-  player: {fileID: 0}
-  maxHealth: 10
-  attackSpeed: 2
-  maxSpeed: 4
+  timeToTarget: 2
+  radius: 0.5
+--- !u!114 &-9211405096542539731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540285996254584572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc4605a2af83264da4fd3ad010a3235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  maxHealth: 100
+  health: 100
+  attackSpeed: 1
+  maxSpeed: 1
+  projectile: {fileID: 1562792769622015959, guid: 7c791d85f4aaa0246b8a8a3ac169e509,
+    type: 3}
+  timeToAttack: 1

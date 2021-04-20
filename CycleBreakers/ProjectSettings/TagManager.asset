@@ -16,6 +16,8 @@ TagManager:
   - Door
   - Manager
   - Wall
+  - PatrolPoints
+  - Boss
   layers:
   - Default
   - TransparentFX

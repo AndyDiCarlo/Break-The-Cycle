@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        factory = new EnemyFactory(RangedPrefab, MeleePrefab);
+        factory = new EnemyFactory(RangedPrefab, MeleePrefab,Boss);
     }
 
     // Update is called once per frame
@@ -47,6 +47,16 @@ public class SpawnManager : MonoBehaviour
             e.setTarget(GameManager.instance().getPlayer());
         }
         spawnTime = spawnCooldown;
+        
+    }
+    public void spawnBoss()
+    {
+        //will spawn wave every time player walks through into new room
+        Enemy e;
+        e = (Enemy)factory.produce();
+        allEnemies.Add(e);
+        e.killEnemy += removeEnemy;
+        e.setTarget(GameManager.instance().getPlayer());
         
     }
 
