@@ -6,12 +6,16 @@ TagManager:
   tags:
   - Melee
   - Ranged
+  - BossCam
+  - BossTrigger
   - HealthUp
   - AttackUp
   - SpeedUp
   - FirerateUp
   - Door1
   - Door
+  - Manager
+  - Wall
   layers:
   - Default
   - TransparentFX
