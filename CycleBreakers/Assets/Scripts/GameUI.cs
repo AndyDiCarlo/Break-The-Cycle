@@ -22,6 +22,9 @@ public class GameUI : MonoBehaviour
         if(health <= 0){
             return;
         }
+        if(health >= 12){
+            health = 12;
+        }
         for(int i = health; i <12;i++){
             Debug.Log(health + " Here1");
             Debug.Log(this.health[1].enabled);
