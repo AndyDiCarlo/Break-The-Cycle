@@ -33,5 +33,9 @@ public class Projectile : MonoBehaviour
             Destroy(this.gameObject);
             collision.GetComponent<Player>().takeDamage(damageAmount);
         }
+        if (collision.tag == "Wall")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

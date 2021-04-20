@@ -610,7 +610,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4425310cb0e3f0b41a4e431b7c2c6843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  playerProjectile: {fileID: 7182431132559366834, guid: 8c1ea72b0f7603b4c85c50563981b27d,
+    type: 3}
+  speed: 5
   health: 0
   maxHealth: 3
   attackSpeed: 2
@@ -36168,7 +36170,7 @@ GameObject:
   - component: {fileID: 6779674986740595408}
   m_Layer: 0
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

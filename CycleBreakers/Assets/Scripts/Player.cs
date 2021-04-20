@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-
+    [SerializeField] private GameObject playerProjectile;
     [SerializeField] private float speed;
     private Rigidbody2D rb;
     private Vector2 moveAmount;
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     private bool keyDown;
     public int loopCount = 0;
     public int roomNumber = 0;
-    //public int enemyCount = 0;
+    private string keyPressed;
 
     public GameUI GUI;
     
@@ -60,26 +60,49 @@ public class Player : MonoBehaviour
 
     public void attack(){
         if(Input.GetKey(KeyCode.LeftArrow)){
-            attackParticle.transform.eulerAngles = new Vector3(0,0,-270);
+            keyPressed = "Left";
             keyDown = true;
         } else if(Input.GetKey(KeyCode.DownArrow)){
-            attackParticle.transform.eulerAngles = new Vector3(0,0,-180);
+            keyPressed = "Down";
             keyDown = true;
         } else if(Input.GetKey(KeyCode.RightArrow)){
-            attackParticle.transform.eulerAngles = new Vector3(0,0,-90);
+            keyPressed = "Right";
             keyDown = true;
         } else if(Input.GetKey(KeyCode.UpArrow)){
-            attackParticle.transform.eulerAngles = new Vector3(0,0,-0);
+            keyPressed = "Up";
             keyDown = true;
         } else{
             keyDown = false;
         }
 
-        if(keyDown && cooldown >= attackSpeed){
-            attackParticle.Play();
+        if(keyDown && cooldown >= attackSpeed && keyPressed == "Down"){
+            GameObject p = Instantiate(playerProjectile, transform.position, Quaternion.identity);
+            p.GetComponent<PlayerProjectile>().attackDown();
             cooldown = 0;
             keyDown = false;
-        } else{
+        } else if (keyDown && cooldown >= attackSpeed && keyPressed == "Up")
+        {
+            GameObject p = Instantiate(playerProjectile, transform.position, Quaternion.identity);
+            p.GetComponent<PlayerProjectile>().attackUp();
+            cooldown = 0;
+            keyDown = false;
+        }
+        else if (keyDown && cooldown >= attackSpeed && keyPressed == "Left")
+        {
+            GameObject p = Instantiate(playerProjectile, transform.position, Quaternion.identity);
+            p.GetComponent<PlayerProjectile>().attackLeft();
+            cooldown = 0;
+            keyDown = false;
+        }
+        else if (keyDown && cooldown >= attackSpeed && keyPressed == "Right")
+        {
+            GameObject p = Instantiate(playerProjectile, transform.position, Quaternion.identity);
+            p.GetComponent<PlayerProjectile>().attackRight();
+            cooldown = 0;
+            keyDown = false;
+        }
+        else
+        {
             if (cooldown < attackSpeed){
                 cooldown += Time.deltaTime;
             }
