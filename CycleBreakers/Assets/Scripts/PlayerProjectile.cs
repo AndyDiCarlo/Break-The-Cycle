@@ -45,6 +45,7 @@ public class PlayerProjectile : MonoBehaviour
         if (collision.tag == "Melee" || collision.tag == "Ranged" || collision.tag =="Boss")
         {
             Destroy(this.gameObject);
+            damageAmount = GameObject.Find("Player").GetComponent<Player>().attackDmg;
             collision.GetComponent<Enemy>().takeDamage(damageAmount);
         }
         

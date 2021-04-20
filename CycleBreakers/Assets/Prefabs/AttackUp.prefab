@@ -97,9 +97,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthincrease: 0
-  attackincrease: 10
+  attackincrease: 1
   speedincrease: 0
   cooldownreduce: 0
+  GUI: {fileID: 0}
 --- !u!61 &5967730521502515208
 BoxCollider2D:
   m_ObjectHideFlags: 0

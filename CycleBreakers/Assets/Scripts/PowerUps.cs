@@ -6,7 +6,7 @@ public class PowerUps : MonoBehaviour
 {
     public int healthincrease;
     public int attackincrease;
-    public int speedincrease;
+    public float speedincrease;
     public float cooldownreduce;
     private GameObject obj;
     public GameUI GUI;

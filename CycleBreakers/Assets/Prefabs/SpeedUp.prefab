@@ -124,5 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthincrease: 0
   attackincrease: 0
-  speedincrease: 10
+  speedincrease: 0.3
   cooldownreduce: 0
+  GUI: {fileID: 0}

@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9cfaf609960f446bbcf84d06c6547a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthincrease: 10
+  healthincrease: 1
   attackincrease: 0
   speedincrease: 0
   cooldownreduce: 0
+  GUI: {fileID: 0}

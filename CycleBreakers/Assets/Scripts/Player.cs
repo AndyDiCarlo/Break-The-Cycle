@@ -47,16 +47,22 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position+moveAmount*Time.deltaTime);
     }
     public void healthUp(int up){
-        maxHealth+=up;
+        if (health < maxHealth)
+        {
+            health += up;
+        }
     }
     public void attackUp(int up){
         attackDmg+=up;
     }
-    public void speedUp(int up){
+    public void speedUp(float up){
         speed+=up;
     }
     public void firerateUp(float down){
-       cooldown-=down;
+        if (attackSpeed > 0)
+        {
+            attackSpeed -= down;
+        }
     }
 
     public void attack(){
