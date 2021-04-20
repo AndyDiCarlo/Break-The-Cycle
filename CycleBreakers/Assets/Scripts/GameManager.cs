@@ -53,8 +53,12 @@ public class GameManager : MonoBehaviour
             e.moveEnemy();
             e.getAttack();
         }
+    } 
+    
+    public void spawnBoss()
+    {
+        sm.spawnBoss();
     }
-
     public void spawn()
     {
         sm.spawnWave();

@@ -42,7 +42,7 @@ public class PlayerProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Melee" || collision.tag == "Ranged")
+        if (collision.tag == "Melee" || collision.tag == "Ranged" || collision.tag =="Boss")
         {
             Destroy(this.gameObject);
             collision.GetComponent<Enemy>().takeDamage(damageAmount);

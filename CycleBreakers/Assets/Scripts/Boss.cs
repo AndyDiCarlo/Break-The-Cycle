@@ -3,86 +3,77 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Boss : MonoBehaviour {
+public class Boss : Enemy {
 
     public Transform[] patrolPoints = null;
-    public GameObject projectile = null;
     private BossState state;
     private bool newPoint = true;
     private int targetIndex = 0;
-    Rigidbody2D rb;
-    public GameObject player;
-    private Vector2 move;
 
-    private int health;
-    [SerializeField] private int maxHealth;
-    [SerializeField] private int attackSpeed;
-    [SerializeField] private float maxSpeed;
-    private float speed;
-    private float cooldown;
-    
     public System.Action<Boss> killBoss;
 
-     void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        health = maxHealth;
-        cooldown = attackSpeed;
-        speed = maxSpeed;
-        //patrolPoints = GameObject.FindGameObjectWithTag("Patrol").GetComponentsInChildren<Transform>();
+    new void Awake(){
+        base.Awake();
+        state = new Patrol(this);
+        patrolPoints= GameObject.FindGameObjectWithTag("PatrolPoints").GetComponentsInChildren<Transform>();
+    }
+    public int getHealth(){
+        return health;
     }
 
-    public void moveAI()
-    {
-        
-        move = (Vector2)player.transform.position - rb.position; //vector from AI to Player
-        float distanceToTarget = move.magnitude;
-        move = move.normalized * speed;
-
-        if(distanceToTarget < 1.5f)
-        {
-            speed = 0;
-        }
-        else
-        {
-            // Debug.Log("I should be moving");
-            speed = maxSpeed;
-        }
-        
-      
+    public int getMaxHealth(){
+        return maxHealth;
     }
-        
+    public float getSpeed(){
+        return speed;
+    }
+    public void setSpeed(float inc){
+        speed=inc;
+    }        
     
     // Update is called once per frame
     void Update()
     {
-        moveAI();
-        attack();
+        state = state.process();
     }
 
-    void FixedUpdate()
+    public void getChaseMovement(){
+        base.move = AIMovement.getMovement(target.transform,speed);
+    }
+
+    public void getPatrolMovement(){
+        if (newPoint){
+            targetIndex = Random.Range(1,patrolPoints.Length);
+            newPoint=false;
+        }
+        Transform t = patrolPoints[targetIndex];
+        base.move = AIMovement.getMovement(t,speed);
+
+        if(base.move == Vector2.zero){
+            this.newPoint=true;
+
+        }
+    }
+
+    public override void getMovement()
     {
-        rb.MovePosition(rb.position + move * Time.deltaTime);
-    }
-
-    public void takeDamage(int amt){
-        health -= amt;
-        if(health<=0){
-            death();
+        if (target==null){
+            base.getMovement();
+            return;
+        }
+        if(state.GetType()==typeof(Patrol)){
+            getChaseMovement();
+        }
+        if(state.GetType()== typeof(Chase)){
+            getChaseMovement();
         }
     }
-    public void death(){
-        killBoss?.Invoke(this);
-        Destroy(this.gameObject);
+    public override void takeDamage(int damageDone)
+    {
+        base.takeDamage(damageDone);
     }
 
-    public void attack(){
-        if(cooldown< 0){
-            GameObject p = Instantiate(projectile,transform.position,Quaternion.identity);
-            p.GetComponent<Projectile>().setTarget(player.transform);
-            cooldown = attackSpeed;
-        }
-        cooldown -=Time.deltaTime;
-    }
+
+
     
 }

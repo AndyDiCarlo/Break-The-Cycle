@@ -7,12 +7,14 @@ public class EnemyFactory : IFactory
 
     private Enemy rangedEnemy;
     private Enemy meleeEnemy;
+    private Enemy bossEnemy;
     public int currentRoom;
 
-    public EnemyFactory(Enemy ranged, Enemy melee)
+    public EnemyFactory(Enemy ranged, Enemy melee,Enemy boss)
     {
         this.rangedEnemy = ranged;
         this.meleeEnemy = melee;
+        this.bossEnemy = boss;
         currentRoom = 0;
     }
 
@@ -43,6 +45,11 @@ public class EnemyFactory : IFactory
         {
             x = Random.Range(-4.6f, -3.6f);
             y = Random.Range(3.65f, 3.9f);
+        }
+        if (currentRoom==4){
+            x=-0.758f;
+            y=3.569f;
+            return spawnEnemy(bossEnemy,x,y);
         }
 
         float rand = Random.Range(0f, 1f);
