@@ -10,6 +10,14 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("TheCycle", LoadSceneMode.Single);
     }
 
+    public void retry(){
+        SceneManager.LoadScene("TheCycle", LoadSceneMode.Single);
+    }
+
+    public void Menu(){
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
     public void QuitGame(){
         Application.Quit();
     }

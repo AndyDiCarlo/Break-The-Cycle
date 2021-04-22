@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public GameObject BossCam;
     private Rigidbody2D rb;
     private Vector2 moveAmount;
+    public GameObject GameOverScreen;
     public int health;
     [SerializeField] private int maxHealth;
     [SerializeField] private float attackSpeed;
@@ -22,13 +23,15 @@ public class Player : MonoBehaviour
     public int loopCount = 0;
     public int roomNumber = 0;
     private string keyPressed;
-
+    private GameObject player;
     public GameUI GUI;
+    
     
 
     // Start is called before the first frame update
     void Start()
     {
+        player= GetComponent<GameObject>();
         rb = GetComponent<Rigidbody2D>();
         health = maxHealth;
         cooldown = attackSpeed;
@@ -47,11 +50,7 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position+moveAmount*Time.deltaTime);
     }
     public void healthUp(int up){
-        if (health < maxHealth)
-        {
-            health += up;
-        }
-        GUI.UpdateHealth(health);
+        maxHealth+=up;
     }
     public void attackUp(int up){
         attackDmg+=up;
@@ -60,10 +59,7 @@ public class Player : MonoBehaviour
         speed+=up;
     }
     public void firerateUp(float down){
-        if (attackSpeed > 0)
-        {
-            attackSpeed -= down;
-        }
+       cooldown-=down;
     }
 
     public void attack(){
@@ -121,6 +117,8 @@ public class Player : MonoBehaviour
         health -= amt;
         GUI.UpdateHealth(health);
         if(health<=0){
+            GameOverScreen.SetActive(true);
+            Destroy(player);
             print("Game Over");
         }
     }
